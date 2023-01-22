@@ -1,0 +1,86 @@
+<html>
+    <style>
+    
+            .toggle-container {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr); /* one column */
+                grid-template-rows: repeat(5, auto); /* 5 rows */
+                grid-gap: 5px; /* gap between rows */
+                align-items: flex-start; /* align toggle switch to the left side */
+                padding-top: 4px;
+            }
+
+            .toggle-switch {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            }
+
+            .toggle-input {
+            display: none;
+            }
+
+            .toggle-label {
+            width: 40px;
+            height: 20px;
+            border-radius: 20px;
+            background: #ccc;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            }
+
+            .toggle-input:checked + .toggle-label {
+            background: #4CAF50;
+            }
+
+            .toggle-label:before {
+            content: "";
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #fff;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            transition: transform 0.2s ease;
+            }
+
+            .toggle-input:checked + .toggle-label:before {
+            transform: translateX(20px);
+            }
+
+            .toggle-text {
+            margin-left: 10px;
+            font-size: 14px;
+            }
+    </style>
+    <div style="width:400px">
+        <h2 style="margin-bottom:0px">Splunk Search Assistant - Settings</h2>
+        <span style="color: red;mrgin-bottom: 8px;">You must refresh page after changing settings</span>
+        <div class="toggle-container">
+            <div class="toggle-switch">
+              <input type="checkbox" id="enableComments" class="toggle-input">
+              <label for="enableComments" class="toggle-label"></label>
+              <span class="toggle-text">Enable toggling comments with Ctrl+/</span>
+            </div>
+            <div class="toggle-switch">
+              <input type="checkbox" id="enableLineCut" class="toggle-input">
+              <label for="enableLineCut" class="toggle-label"></label>
+              <span class="toggle-text">Enable cut line with Ctrl+x</span>
+            </div>
+            <div class="toggle-switch">
+              <input type="checkbox" id="enableShowHelp" class="toggle-input">
+              <label for="enableShowHelp" class="toggle-label"></label>
+              <span class="toggle-text">Enable "show help" with Ctrl+Space</span>
+            </div>
+            <div class="toggle-switch">
+              <input type="checkbox" id="enableShowLineNumbers" class="toggle-input">
+              <label for="enableShowLineNumbers" class="toggle-label"></label>
+              <span class="toggle-text">Enable Ctrl+l to toggle showing line numbers</span>
+            </div>
+          </div>
+    </div>
+    <script src="scripts/settings.js"></script>
+</html>
